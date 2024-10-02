@@ -76,12 +76,12 @@ descriptions:
 #     desc: Follow me on Twitter            # Description to display as link title, etc
 #     share: true                           # Include in the "Share" section of posts
 social:
-  - name: Twitter
-    icon: twitter
-    username: TheBenCentra
-    url: https://twitter.com/TheBenCentra
-    desc: Follow me on Twitter
-    share: false
+  #- name: Twitter
+  #  icon: twitter
+  #  username: TheBenCentra
+  #  url: https://twitter.com/TheBenCentra
+  #  desc: Follow me on Twitter
+  #  share: false
 
   - name: Facebook
     icon: facebook
@@ -95,7 +95,7 @@ social:
     username: nfshermy
     url: https://github.com/nfshermy
     desc: Fork me on GitHub
-    share: true
+    share: false
 
   - name: LinkedIn
     icon: linkedin
@@ -179,7 +179,7 @@ social:
     username: ""
     url: ""
     desc: Share to Reddit
-    share: true
+    share: false
 
   - name: "Hacker News"
     icon: hacker-news
