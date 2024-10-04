@@ -90,6 +90,20 @@ social:
     desc: Friend me on Facebook
     share: false
 
+- name: OrcID
+    #icon: facebook
+    username: 0000-0001-5399-0114
+    url: https://orcid.org/0000-0001-5399-0114
+    #desc: Friend me on Facebook
+    share: true
+
+  - name: Google Scholar
+    icon: graduation-cap 
+    username: Nora F. Sherman
+    url: https://scholar.google.com/citations?user=29I6AmUAAAAJ
+    #desc: Friend me on Facebook
+    share: true
+
   - name: GitHub
     icon: github
     username: nfshermy
