@@ -97,12 +97,12 @@ social:
     #desc: Friend me on Facebook
     share: true
 
-  - name: Google Scholar
-    icon: graduation-cap 
-    username: Nora F. Sherman
-    url: https://scholar.google.com/citations?user=29I6AmUAAAAJ
+#- name: Google Scholar
+#    icon: graduation-cap 
+#    username: Nora F. Sherman
+#    url: https://scholar.google.com/citations?user=29I6AmUAAAAJ
     #desc: Friend me on Facebook
-    share: true
+#    share: true
 
   - name: GitHub
     icon: github
