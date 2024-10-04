@@ -98,7 +98,7 @@ social:
     share: true
 
   - name: Google Scholar
-    icon: graduation-cap 
+    icon: <i class="fa-brands fa-google-scholar"></i> 
     username: Nora F. Sherman
     url: https://scholar.google.com/citations?user=29I6AmUAAAAJ
     #desc: Friend me on Facebook
