@@ -1,88 +1,544 @@
----
-layout: default
-pagination: 
-  enabled: true
----
-<div class="home">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="site-header-container {% if site.cover %}has-cover{% endif %}" {% if site.cover %}style="background-image: url({{ site.cover | prepend: site.baseurl }});"{% endif %}>
-  <div class="scrim {% if site.cover %}has-cover{% endif %}">
-    <header class="site-header">
-      <h1 class="title">{{ site.title }}</h1>
-      {% if site.subtitle %}<p class="subtitle">{{ site.subtitle }}</p>{% endif %}
-    </header>
-  </div>
+<title>Nora Field Sherman</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#faf8f5;
+    --text:#111111;
+    --gray:#666666;
+    --gold:#b69356;
+    --accent:#183a73;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    line-height:1.7;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.55)
+    ),
+    url("images/sunset.jpeg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:900px;
+    padding:40px;
+}
+
+.eyebrow{
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+    opacity:.8;
+}
+
+.hero h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(3rem,8vw,6.5rem);
+    line-height:.95;
+    margin-bottom:30px;
+}
+
+.hero p{
+    font-size:1.3rem;
+    opacity:.9;
+}
+
+.cta{
+    display:inline-block;
+    margin-top:40px;
+    padding:15px 32px;
+
+    background:white;
+    color:black;
+
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* INTRO */
+
+.intro{
+    max-width:1200px;
+    margin:auto;
+
+    padding:120px 40px;
+
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.intro img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.1);
+}
+
+.intro h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:4rem;
+    line-height:.95;
+    margin-bottom:25px;
+}
+
+.intro p{
+    font-size:1.2rem;
+    color:var(--gray);
+}
+
+/* FEATURE */
+
+.feature{
+    max-width:1400px;
+    margin:auto;
+
+    padding:0 40px 140px;
+
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.feature img{
+    width:100%;
+    border-radius:24px;
+}
+
+.feature h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:4rem;
+    line-height:.95;
+    margin:15px 0 25px;
+}
+
+/* SECTION TITLES */
+
+.section{
+    max-width:1300px;
+    margin:auto;
+    padding:0 40px;
+}
+
+.section-title{
+    margin-bottom:60px;
+}
+
+.section-title p{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:3.5rem;
+    font-family:"Cormorant Garamond",serif;
+}
+
+/* RESEARCH */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+
+    margin-bottom:140px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.05);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:30px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+/* QUESTIONS */
+
+.questions{
+    margin-bottom:140px;
+}
+
+.question{
+    font-family:"Cormorant Garamond",serif;
+    font-size:2.2rem;
+    padding:25px 0;
+    border-bottom:1px solid #ddd;
+}
+
+/* PUBLICATIONS */
+
+.pub-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+
+    margin-bottom:140px;
+}
+
+.pub{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+}
+
+.pub img{
+    width:100%;
+    height:260px;
+    object-fit: scale-down;
+}
+
+.pub span{
+    color:var(--gold);
+}
+
+.pub h3{
+    margin:15px 0;
+}
+
+/* TIMELINE */
+
+.timeline{
+    margin-bottom:140px;
+}
+
+.timeline-item{
+    display:grid;
+    grid-template-columns:150px 1fr;
+
+    padding:40px 0;
+
+    border-top:1px solid #ddd;
+}
+
+.year{
+    font-size:2rem;
+    font-weight:700;
+}
+
+/* FOOTER */
+
+.contact{
+    background:#111;
+    color:white;
+    text-align:center;
+
+    padding:120px 40px;
+}
+
+.contact h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:4rem;
+}
+
+.links{
+    margin-top:40px;
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.links a{
+    color:white;
+    text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.intro,
+.feature{
+    grid-template-columns:1fr;
+}
+
+.cards,
+.pub-grid{
+    grid-template-columns:1fr;
+}
+
+.timeline-item{
+    grid-template-columns:1fr;
+    gap:15px;
+}
+
+.hero h1{
+    font-size:4rem;
+}
+
+.intro h2,
+.feature h2{
+    font-size:3rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<p class="eyebrow">
+DR. NORA FIELD SHERMAN
+</p>
+
+<h1>
+Understanding the Universe through massive explosions in the  sky
+</h1>
+
+<p>
+Astrophysics • Computation • Discovery
+</p>
+
+<a href="#research" class="cta">
+Explore Research
+</a>
+
 </div>
 
-<div class="wrapper">
-<ul class="post-list">
-  {% for post in paginator.posts %}
-  <li>
-    <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">{{ post.date | date: "%B %-d, %Y" }}</div>
-      <div class="post-categories">
-      {% if post.categories.size > 0 %}in {% for cat in post.categories %}
-        {% if site.jekyll-archives %}
-        <a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-        {% else %}
-        <a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-        {% endif %}
-      {% endfor %}{% endif %}
-      </div>
-    </section>
-  </li>
-  {% if forloop.last == false %}
-  <hr>
-  {% endif %}
-  {% endfor %}
-</ul>
+</section>
 
-<nav class="pagination" role="navigation">
-	<p>
-    {% if paginator.previous_page %}
-			{% if paginator.page == 2 %}
-			<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square fa-stack-2x"></i>
-          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-        </span>
-      </a>
-			{% else %}
-			<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
-				<span class="fa-stack fa-lg">
-					<i class="fa fa-square fa-stack-2x"></i>
-					<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-				</span>
-			</a>
-			{% endif %}
-		{% else %}
-		<span class="fa-stack fa-lg">
-      <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-    </span>
-		{% endif %}
-		<span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-		{% if paginator.next_page %}
-		<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-		{% else %}
-		<span class="fa-stack fa-lg">
-      <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-    </span>
-		{% endif %}
-	</p>
-</nav>
+<section class="intro">
+
+<img src="images/IMG_6956.jpeg">
+
+<div>
+
+<h2>
+Physicists and astrophysicist.<br>
+Sometimes cosmologist.<br>
+</h2>
+
+<p>
+I work at the gates of the stellar graveyard using dead and dying stars to probe the mysteries of our expanding Universe. My work uses big telescopes and even bigger data along with advanced computational methods to place limits on the physical properties of electromagnetic transients and constrain cosmological models, all in an effort to better understand Dark Energy.</p>
 
 </div>
+
+</section>
+
+<section class="feature">
+
+<img src="images/BlancoGal.jpeg">
+
+<div>
+
+<p class="eyebrow" style="color:#b69356">
+FEATURED RESEARCH
+</p>
+<h2>
+Climbing the cosmic distance ladder.
+</h2>
+
+<p>
+The Dark Energy Bedrock All-Sky Supernova program (DEBASS) images the Southern sky to create one of the largest, most uniformly calibrated low-redshift Type Ia supernova (SN Ia) surveys to-date in an effort to overcome systematics present in leading low+high redshift cosmological constraints and isolate novel behaviors of our Universe. My work on this project includes collection (both onsite and remote observing using the Dark Energy Camera in Chile), reduction, and analysis of our data in order to study SN Ia, the local Universe, and Dark Energy.</p>
+
 </div>
+
+</section>
+
+<section class="section" id="research">
+
+<div class="section-title">
+<p>CURRENT RESEARCH</p>
+<h2>Questions worth pursuing.</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<img src="images/2021agbv.gif">
+<div class="card-content">
+<h3>Type Ia Supernovae</h3>
+<p>What standarizable stellar death can tell us about the Universe.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="images/Blanco.jpeg">
+<div class="card-content">
+<h3>Electromagnetic Counterparts to Gravitational Wave Mergers</h3>
+<p>Using explosive collisions of dead stars to measure the Universe.</p>
+</div>
+</div>
+
+<!--
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+<div class="card-content">
+<h3>Visualization</h3>
+<p>Making scientific complexity understandable.</p>
+</div>
+</div>
+-->
+
+</div>
+
+<!--
+<div class="section-title">
+<p>THE QUESTIONS</p>
+<h2>What drives my work.</h2>
+</div>
+
+<div class="questions">
+
+<div class="question">How do galaxies evolve?</div>
+<div class="question">How does complexity emerge?</div>
+<div class="question">How can AI become a scientific instrument?</div>
+<div class="question">How can discovery become more accessible?</div>
+
+</div>
+-->
+
+<div class="section-title">
+<p>SELECTED WORK</p>
+<h2>Featured Results.</h2>
+</div>
+
+<div class="pub-grid">
+
+<div class="pub">
+<img src="images/DEBASS.png">
+<span>The Astrophysical Journal · 2026</span>
+<h3>The Dark Energy Bedrock All-sky Supernova Program: Motivation, Design, Implementation, and Preliminary Data Release</h3>
+<p>First results of the DEBASS progam, consisting of 77 low-redshift SNe Ia imaged using the Dark Energy Camera.</p>
+</div>
+
+<!--
+<div class="pub">
+<span>ApJ · 2024</span>
+<h3>Mapping Cosmic Structure at Scale</h3>
+<p>Combining simulations and observations.</p>
+</div> 
+-->
+
+</div>
+
+<div class="section-title">
+<p>JOURNEY</p>
+<h2>Path through science.</h2>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="year">Current</div>
+<div>
+<h3>Postdoctoral Associate</h3>
+<p>Boston University, Institute for Astrophysical Research</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="year">2024</div>
+<div>
+<h3>Ph.D. in Physics/Astrophysics</h3>
+<p>University of Michigan</p>
+<p><i>Improving the Discovery Power of the Dark Energy Survey Gravitational Wave Program in Its Fourth Observing Campaign</i></p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="year">2019</div>
+<div>
+<h3>B.S. in Physics <i>(Highest Distinction)</i></h3>
+<p>University of Illinois at Urbana-Champaign</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>
+Interested in collaborating?
+</h2>
+<p>
+Research, outreach, education, and art.
+</p>
+
+<div class="links">
+
+<a href="mailto:norafsherman@att.net">Email</a>
+<a href="files/norafsCV0626.pdf" target="_blank">CV</a>
+<a href="https://scholar.google.com/citations?user=29I6AmUAAAAJ">Google Scholar</a>
+<a href="https://orcid.org/0000-0001-5399-0114">ORCID</a>
+<a href="https://www.linkedin.com/in/nora-sherman-6234a5134">LinkedIn</a>
+<a href="https://github.com/nfshermy">GitHub</a>
+
+</div>
+
+</section>
+
+</body>
+</html>
